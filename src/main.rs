@@ -103,14 +103,12 @@ fn get_file_data(file_name : &str,line_num : bool,non_empty : bool,show_ends : b
 	if line_num || non_empty || squeeze_blank{
 		for line in file.split("\n"){
 			let formatted : String;
-			println!("Line {:?} is empty {:?}",line.to_string(),line.replace("\r","").is_empty());
 			if line_num || (non_empty && !line.replace("\r","").is_empty()){
 				formatted = format!("{:0width$}",count,width = num_width);
 				count+=1;
 				repeated_blank = false;
 			}else{
 				formatted = format!("{:0width$}"," ",width = num_width);
-				println!("{}",formatted);
 				repeated_blank = true;
 			}
 
