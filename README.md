@@ -20,9 +20,13 @@ This builds the binary for your architecture and stores in ~/.cargo so that you 
 ```bash
     cat [FLAGS] [FILES]...
     FLAGS:
-       - -h, --help       : Prints help information
-       - -n, --num        : print the line number for each file
-       - -V, --version    : Prints version information
+	    - -h, --help               Prints help information
+	    - -n, --num                print the line number for each file
+	    - -b, --number-nonblank    number non empty output lines, overrides -n
+	    - -E, --show-ends          Show $ at the end of each line
+	    - -t, --show-tabs          sdiaply TAB characters as ^I
+	    - -s, --squeeze-blank      suppress repeated empty output lines
+	    - -V, --version            Prints version information
     
     ARGS:
        - <FILES>...    List of files to cat

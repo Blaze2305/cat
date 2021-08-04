@@ -98,22 +98,25 @@ fn get_file_data(file_name : &str,line_num : bool,non_empty : bool,show_ends : b
 	let file = fs::read_to_string(file_name)?;
 	let mut file_data :String = String::new();
 	let mut count : u32 = 1;
-	let mut repeated_blank : bool;
+	let mut repeated_blank : bool = false;
 	let num_width = file.matches("\n").count().to_string().len() + 1;
 	if line_num || non_empty || squeeze_blank{
 		for line in file.split("\n"){
 			let formatted : String;
-			if line_num || (non_empty && !line.replace("\r","").is_empty()){
+			let is_empty : bool = line.replace("\r","").replace("\t","").replace(" ","").is_empty();
+			if line_num || (non_empty && !is_empty ){
 				formatted = format!("{:0width$}",count,width = num_width);
 				count+=1;
-				repeated_blank = false;
 			}else{
 				formatted = format!("{:0width$}"," ",width = num_width);
-				repeated_blank = true;
 			}
 
-			if squeeze_blank && repeated_blank{
-				continue;
+			if squeeze_blank && is_empty {
+				if repeated_blank {
+					continue;
+				}else{
+					repeated_blank = true;
+				}
 			}
 
 			file_data += &format_output_string(line,formatted, line_num || non_empty);
