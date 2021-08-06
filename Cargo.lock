@@ -29,14 +29,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cf1de2fe8c75bc145a2f577add951f8134889b4795d47466a54a5c846d691693"
 
 [[package]]
-name = "cat"
-version = "0.2.0"
-dependencies = [
- "clap",
- "ctrlc",
-]
-
-[[package]]
 name = "cc"
 version = "1.0.69"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -98,6 +90,14 @@ dependencies = [
  "cc",
  "cfg-if",
  "libc",
+]
+
+[[package]]
+name = "rust-cat"
+version = "0.2.0"
+dependencies = [
+ "clap",
+ "ctrlc",
 ]
 
 [[package]]
