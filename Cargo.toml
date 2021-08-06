@@ -1,7 +1,9 @@
 [package]
 name = "cat"
+license = "GPL-3.0-or-later"
 version = "0.2.0"
 edition = "2018"
+description = "A Rust rewrite of UNIX cat"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
