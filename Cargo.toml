@@ -1,5 +1,5 @@
 [package]
-name = "cat"
+name = "rust-cat"
 license = "GPL-3.0-or-later"
 version = "0.2.0"
 edition = "2018"
@@ -10,3 +10,7 @@ description = "A Rust rewrite of UNIX cat"
 [dependencies]
 ctrlc = "3.1.9"
 clap = "2.33.3"
+
+[[bin]]
+name = "cat"
+path = "src/main.rs"
